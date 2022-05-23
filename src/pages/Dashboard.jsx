@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <Layout>
       <HStack bg="green.400" p="5" rounded="lg" color="white">
-        <Heading fontSize="3.5rem">Welcome Maryam Gomina</Heading>
+        <Heading fontSize={['2rem', '3.5rem']}>Welcome Maryam Gomina</Heading>
         <Image w="50%" src="/assets/read.svg" />
       </HStack>
     </Layout>

@@ -18,19 +18,16 @@ const Home = () => {
       bgRepeat="no-repeat"
       bgPosition="right"
     >
-      <HStack shadow="lg"
+      <HStack
+        shadow="lg"
         align="center"
         justify="space-between"
-        px={[10, 20]}
-        py="5"
+        px={{ base: 2, md: 10, lg: 20 }}
+        py={[3, 5]}
         bg="white"
       >
-        <Image
-          src="/assets/kodecamp.png"
-          alt="logo"
-          objectFit="contain"
-        />
-        <Button variant="solid" colorScheme="green" px="8" mr="5">
+        <Image src="/assets/kodecamp.png" alt="logo" objectFit="contain" />
+        <Button variant="solid" colorScheme="green" mr="5">
           <Link to="/login">Login</Link>
         </Button>
       </HStack>
@@ -38,11 +35,14 @@ const Home = () => {
         px={[10, 20]}
         color="white"
         align="start"
-        h="300px"
+        h="80vh"
         justify="center"
       >
-        <Heading fontSize="3.5rem">
-          <Text color="purple">LEARN ON </Text>YOUR CLASS SCHEDULE
+        <Heading display="inline" fontSize={{ base: '2rem', lg: '3.5rem' }}>
+          <Text color="purple" display="inline">
+            LEARN ON YOUR
+          </Text>{' '}
+          CLASS SCHEDULE
         </Heading>
       </VStack>
     </Box>

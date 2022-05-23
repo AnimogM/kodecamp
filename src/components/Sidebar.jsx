@@ -20,7 +20,7 @@ const Sidebar = () => {
       color="white"
       pos="fixed"
       left="0"
-      w="250px"
+      w={['full', '200px']}
     >
       <VStack align="center" w="full">
         <Image
@@ -41,7 +41,7 @@ const Sidebar = () => {
               alignContent={item.name === 'logout' ? 'end' : ''}
               _hover={{ bg: 'blue.800', roundedRight: 'lg' }}
               spacing="5"
-              w="250px"
+              w={['full', '250px']}
               px="6"
               py="3"
             >

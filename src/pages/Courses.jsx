@@ -9,7 +9,7 @@ const Courses = () => {
     <Layout>
       <Box>
         <Heading py={[5, 10]} color="blue">Available Courses</Heading>
-        <SimpleGrid columns={[3, 4]} spacing="5">
+        <SimpleGrid columns={{base:3, lg:4}} spacing="5">
           {course.map(item => {
             const { id, name, color } = item;
             return (

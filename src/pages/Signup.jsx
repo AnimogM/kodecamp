@@ -17,11 +17,11 @@ import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa';
 
 const Signup = () => {
   return (
-    <Box px="20" minH="100vh" py="10" bg="gray.50">
+    <Box px={{ base: '6', lg: '20' }} minH="100vh" py="10" bg="gray.50">
       <Heading>Student Signup</Heading>
       <Text py="2">Create your account</Text>
       <SimpleGrid columns={[1, 2]} gap="20" alignItems="center">
-        <Box textAlign="center">
+        <Box textAlign="center" display={['none', 'block']}>
           <Image src="/assets/takenote.svg" alt="background image" />
         </Box>
         <Box bg="">

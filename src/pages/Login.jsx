@@ -18,11 +18,11 @@ import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
   return (
-    <Box px="20" py="10" bg="gray.50" minH="100vh">
+    <Box px={{ base: '6', lg: '20' }} py="10" bg="gray.50" minH="100vh">
       <Heading>Student Login</Heading>
       <Text py="2">make sure your account is secure</Text>
       <SimpleGrid columns={[1, 2]} gap="20" alignItems="center">
-        <Box textAlign="center">
+        <Box textAlign="center" display={['none', 'block']}>
           <Image src="/assets/takenote.svg" alt="background image" />
         </Box>
         <Box>

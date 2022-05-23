@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack, useBoolean } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import Branch from '../components/Branch';
 import Layout from '../components/Layout';

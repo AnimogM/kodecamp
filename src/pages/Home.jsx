@@ -1,13 +1,5 @@
-import {
-  Box,
-  Heading,
-  HStack,
-  Image,
-  Text,
-  Button,
-  VStack,
-} from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Box, Heading, VStack } from '@chakra-ui/react';
+import Header from '../components/Header';
 
 const Home = () => {
   return (
@@ -18,19 +10,7 @@ const Home = () => {
       bgRepeat="no-repeat"
       bgPosition="right"
     >
-      <HStack
-        shadow="lg"
-        align="center"
-        justify="space-between"
-        px={{ base: 2, md: 10, lg: 20 }}
-        py={[3, 5]}
-        bg="white"
-      >
-        <Image src="/assets/kodecamp.png" alt="logo" objectFit="contain" />
-        <Button variant="solid" colorScheme="green" mr="5">
-          <Link to="/login">Login</Link>
-        </Button>
-      </HStack>
+      <Header />
       <VStack
         px={[10, 20]}
         color="white"
@@ -38,11 +18,8 @@ const Home = () => {
         h="80vh"
         justify="center"
       >
-        <Heading display="inline" fontSize={{ base: '2rem', lg: '3.5rem' }}>
-          <Text color="purple" display="inline">
-            LEARN ON YOUR
-          </Text>{' '}
-          CLASS SCHEDULE
+        <Heading color="orange" fontSize={{ base: '2rem', lg: '3.5rem' }}>
+          LEARN ON YOUR <br/> CLASS SCHEDULE
         </Heading>
       </VStack>
     </Box>

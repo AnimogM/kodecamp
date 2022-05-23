@@ -12,13 +12,13 @@ const Sidebar = () => {
   ];
   return (
     <VStack
-      align="start"
+      align={["center","start"]}
       py="10"
       spacing="5"
       h="100vh"
       bg="blue.400"
       color="white"
-      pos="fixed"
+      pos={["static", "fixed"]}
       left="0"
       w={['full', '200px']}
     >

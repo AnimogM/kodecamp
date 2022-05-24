@@ -10,12 +10,18 @@ import {
   SimpleGrid,
   Text,
   VStack,
+  useBoolean,
 } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa';
+import { FaEnvelope, FaUser } from 'react-icons/fa';
+import { BiHide, BiShow } from 'react-icons/bi';
+import { useUserAuth } from '../context/UserAuthContext';
 
 const Signup = () => {
+  const { signupDetails, handleSignupChange, signupError, handleSignup } =
+    useUserAuth();
+  const [show, setShow] = useBoolean();
   return (
     <Box px={{ base: '6', lg: '20' }} minH="100vh" py="10" bg="gray.50">
       <Heading>Student Signup</Heading>
@@ -28,13 +34,15 @@ const Signup = () => {
           <Box maxW="200px" mx="auto" mb="3">
             <Image src="/assets/logo.png" alt="kodecamp" />
           </Box>
-          <form>
+          <form onSubmit={handleSignup}>
             <VStack spacing="5">
               <InputGroup>
                 <Input
                   type="text"
                   placeholder="Name"
                   name="name"
+                  value={signupDetails.name}
+                  onChange={handleSignupChange}
                   variant="flushed"
                   borderBottomColor="gray.500"
                 />
@@ -45,6 +53,8 @@ const Signup = () => {
                   type="email"
                   placeholder="Email"
                   name="email"
+                  value={signupDetails.email}
+                  onChange={handleSignupChange}
                   variant="flushed"
                   borderBottomColor="gray.500"
                 />
@@ -52,24 +62,29 @@ const Signup = () => {
               </InputGroup>
               <InputGroup>
                 <Input
-                  type="password"
+                  type={show ? 'text' : 'password'}
                   variant="flushed"
                   borderBottomColor="gray.500"
                   placeholder="Password"
                   name="password"
+                  value={signupDetails.password}
+                  onChange={handleSignupChange}
                 />
-                <InputRightElement children={<FaLock color="blue" />} />
-              </InputGroup>
-              <InputGroup>
-                <Input
-                  type="password"
-                  borderBottomColor="gray.500"
-                  variant="flushed"
-                  placeholder="Confirm Password"
-                  name="confirmPassword"
+                <InputRightElement
+                  onClick={setShow.toggle}
+                  cursor="pointer"
+                  children={
+                    show ? <BiShow color="blue" /> : <BiHide color="blue" />
+                  }
                 />
-                <InputRightElement children={<FaLock color="blue" />} />
               </InputGroup>
+              {signupError ? (
+                <Text color="red" alignSelf="start">
+                  fields cannot be empty
+                </Text>
+              ) : (
+                ''
+              )}
               <Flex gap="3">
                 Already have an account?
                 <Link to="/login">

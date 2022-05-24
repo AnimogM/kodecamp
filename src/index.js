@@ -2,6 +2,7 @@ import { ChakraProvider, ColorModeScript, theme } from '@chakra-ui/react';
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import UserAuthContextProvider  from './context/UserAuthContext';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
@@ -12,11 +13,13 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <StrictMode>
     <ColorModeScript />
-    <BrowserRouter>
-      <ChakraProvider theme={theme}>
-        <App />
-      </ChakraProvider>
-    </BrowserRouter>
+    <ChakraProvider theme={theme}>
+      <UserAuthContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </UserAuthContextProvider>
+    </ChakraProvider>
   </StrictMode>
 );
 

@@ -11,6 +11,8 @@ import {
   Text,
   VStack,
   useBoolean,
+  Alert,
+  AlertIcon,
 } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -19,7 +21,7 @@ import { BiHide, BiShow } from 'react-icons/bi';
 import { useUserAuth } from '../context/UserAuthContext';
 
 const Signup = () => {
-  const { signupDetails, handleSignupChange, signupError, handleSignup } =
+  const { signupDetails, handleSignupChange, signupError, signup } =
     useUserAuth();
   const [show, setShow] = useBoolean();
   return (
@@ -34,7 +36,7 @@ const Signup = () => {
           <Box maxW="200px" mx="auto" mb="3">
             <Image src="/assets/logo.png" alt="kodecamp" />
           </Box>
-          <form onSubmit={handleSignup}>
+          <form onSubmit={signup}>
             <VStack spacing="5">
               <InputGroup>
                 <Input
@@ -78,12 +80,11 @@ const Signup = () => {
                   }
                 />
               </InputGroup>
-              {signupError ? (
-                <Text color="red" alignSelf="start">
-                  fields cannot be empty
-                </Text>
-              ) : (
-                ''
+              {signupError && (
+                <Alert status="error" alignSelf="start">
+                  <AlertIcon/>
+                  {signupError}
+                </Alert>
               )}
               <Flex gap="3">
                 Already have an account?

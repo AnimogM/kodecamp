@@ -1,12 +1,27 @@
-import { Heading, HStack, Image } from '@chakra-ui/react';
+import { Heading, Stack, Image } from '@chakra-ui/react';
 import Layout from '../components/Layout';
+import { useUserAuth } from '../context/UserAuthContext';
 const Dashboard = () => {
+  const { user } = useUserAuth();
   return (
     <Layout>
-      <HStack bg="green.400" m={['8', '0']} p="5" rounded="lg" color="white">
-        <Heading fontSize={['2rem', '3.5rem']}>Welcome Maryam Gomina</Heading>
-        <Image w="50%" src="/assets/read.svg" />
-      </HStack>
+      <Stack
+        direction={['column', 'row']}
+        bg="green.400"
+        m={['1', '0']}
+        p="5"
+        rounded="lg"
+        color="white"
+        align="center"
+      >
+        <Heading
+          fontSize={{ base: '1.5rem', md: '2.5rem', lg: '3.5rem' }}
+          wordBreak="break-word"
+        >
+          Welcome {user?.email}
+        </Heading>
+        <Image w="50%" alignSelf="center" src="/assets/read.svg" />
+      </Stack>
     </Layout>
   );
 };

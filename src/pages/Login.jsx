@@ -1,4 +1,6 @@
 import {
+  Alert,
+  AlertIcon,
   Box,
   Button,
   Flex,
@@ -16,13 +18,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaEnvelope } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import {BiHide, BiShow} from 'react-icons/bi'
+import { BiHide, BiShow } from 'react-icons/bi';
 import { useUserAuth } from '../context/UserAuthContext';
 
 const Login = () => {
-  const { handleLogin, loginDetails, handleLoginChange, loginError } =
-    useUserAuth();
-  const [show, setShow] = useBoolean()
+  const {
+    loginDetails,
+    signupSucess,
+    handleLoginChange,
+    loginError,
+    login,
+    googleSignin,
+  } = useUserAuth();
+  const [show, setShow] = useBoolean();
   return (
     <Box px={{ base: '6', lg: '20' }} py="10" bg="gray.50" minH="100vh">
       <Heading>Student Login</Heading>
@@ -35,9 +43,16 @@ const Login = () => {
           <Box maxW="200px" mx="auto" mb="3">
             <Image src="/assets/logo.png" alt="kodecamp" />
           </Box>
-          <form onSubmit={handleLogin}>
+          <form onSubmit={login}>
             <VStack spacing="5">
+              {signupSucess && (
+                <Alert status="success">
+                  <AlertIcon />
+                  Account created successfully, login!
+                </Alert>
+              )}
               <Button
+                onClick={googleSignin}
                 type="button"
                 w="full"
                 display="flex"
@@ -72,14 +87,19 @@ const Login = () => {
                   onChange={handleLoginChange}
                   borderBottomColor="gray.500"
                 />
-                <InputRightElement onClick={setShow.toggle} cursor="pointer" children={show?  <BiShow color="blue" />: <BiHide color='blue'/>} />
+                <InputRightElement
+                  onClick={setShow.toggle}
+                  cursor="pointer"
+                  children={
+                    show ? <BiShow color="blue" /> : <BiHide color="blue" />
+                  }
+                />
               </InputGroup>
-              {loginError ? (
-                <Text color="red" alignSelf="start">
-                  fields cannot be empty
-                </Text>
-              ) : (
-                ''
+              {loginError && (
+                <Alert status="error" alignSelf="start">
+                  <AlertIcon />
+                  {loginError}
+                </Alert>
               )}
               <Flex gap="3">
                 Don't have an account?

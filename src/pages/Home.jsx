@@ -1,12 +1,13 @@
 import { Box, Heading, VStack } from '@chakra-ui/react';
 import Header from '../components/Header';
+import Img from '../assets/student.png';
 
 const Home = () => {
   return (
     <Box
       h="100vh"
       bg="blue.300"
-      bgImg='url("/assets/student.png")'
+      bgImg={`url("${Img}")`}
       bgRepeat="no-repeat"
       bgPosition="right"
     >

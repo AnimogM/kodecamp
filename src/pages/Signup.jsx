@@ -19,6 +19,8 @@ import { Link } from 'react-router-dom';
 import { FaEnvelope, FaUser } from 'react-icons/fa';
 import { BiHide, BiShow } from 'react-icons/bi';
 import { useUserAuth } from '../context/UserAuthContext';
+import Logo from '../assets/logo.png';
+import Img from '../assets/takenote.svg';
 
 const Signup = () => {
   const { signupDetails, handleSignupChange, signupError, signup } =
@@ -30,11 +32,11 @@ const Signup = () => {
       <Text py="2">Create your account</Text>
       <SimpleGrid columns={[1, 2]} gap="20" alignItems="center">
         <Box textAlign="center" display={['none', 'block']}>
-          <Image src="/assets/takenote.svg" alt="background image" />
+          <Image src={Img} alt="background image" />
         </Box>
         <Box bg="">
           <Box maxW="200px" mx="auto" mb="3">
-            <Image src="/assets/logo.png" alt="kodecamp" />
+            <Image src={Logo} alt="kodecamp" />
           </Box>
           <form onSubmit={signup}>
             <VStack spacing="5">

@@ -2,6 +2,7 @@ import { HStack, Image, Button, Box } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { BiMenu } from 'react-icons/bi';
 import { useUserAuth } from '../context/UserAuthContext';
+import Logo from '../assets/kodecamp.png';
 
 const Header = ({ onOpen }) => {
   const { user } = useUserAuth();
@@ -14,7 +15,7 @@ const Header = ({ onOpen }) => {
       py={[3, 5]}
       bg="white"
     >
-      <Image src="/assets/kodecamp.png" alt="logo" objectFit="contain" />
+      <Image src={Logo} alt="logo" objectFit="contain" />
       <Link to="/login">
         <Button
           display={ [user? 'none': 'block', 'block']}

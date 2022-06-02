@@ -7,6 +7,7 @@ import Courses from './pages/Courses';
 import Profile from './pages/Profile';
 import Course from './pages/Course';
 import NotFound from './pages/NotFound';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -15,10 +16,38 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/courses" element={<Courses />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/course/:id" element={<Course />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/courses"
+        element={
+          <PrivateRoute>
+            <Courses />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/course/:id"
+        element={
+          <PrivateRoute>
+            <Course />
+          </PrivateRoute>
+        }
+      />
 
       <Route path="*" element={<NotFound />} />
     </Routes>

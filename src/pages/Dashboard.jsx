@@ -1,6 +1,8 @@
 import { Heading, Stack, Image } from '@chakra-ui/react';
 import Layout from '../components/Layout';
 import { useUserAuth } from '../context/UserAuthContext';
+import Img from '../assets/read.svg';
+
 const Dashboard = () => {
   const { user } = useUserAuth();
   return (
@@ -20,7 +22,7 @@ const Dashboard = () => {
         >
           Welcome {user?.displayName? user?.displayName: localStorage.getItem("name")}
         </Heading>
-        <Image w="50%" alignSelf="center" src="/assets/read.svg" />
+        <Image w="50%" alignSelf="center" src={Img} />
       </Stack>
     </Layout>
   );

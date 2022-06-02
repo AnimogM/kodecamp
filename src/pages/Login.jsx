@@ -20,6 +20,8 @@ import { FaEnvelope } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { BiHide, BiShow } from 'react-icons/bi';
 import { useUserAuth } from '../context/UserAuthContext';
+import Logo from '../assets/logo.png';
+import Img from '../assets/takenote.svg';
 
 const Login = () => {
   const {
@@ -37,11 +39,11 @@ const Login = () => {
       <Text py="2">make sure your account is secure</Text>
       <SimpleGrid columns={[1, 2]} gap="20" alignItems="center">
         <Box textAlign="center" display={['none', 'block']}>
-          <Image src="/assets/takenote.svg" alt="background image" />
+          <Image src={Img} alt="background image" />
         </Box>
         <Box>
           <Box maxW="200px" mx="auto" mb="3">
-            <Image src="/assets/logo.png" alt="kodecamp" />
+            <Image src={Logo} alt="kodecamp" />
           </Box>
           <form onSubmit={login}>
             <VStack spacing="5">

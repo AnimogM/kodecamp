@@ -4,13 +4,8 @@ import { FaBook, FaUser } from 'react-icons/fa';
 import { BiLogOut } from 'react-icons/bi';
 import { BsGridFill } from 'react-icons/bs';
 import { useUserAuth } from '../context/UserAuthContext';
+import Logo from "../assets/logo.png";
 
-const items = [
-  { name: 'dashboard', icon: <BsGridFill />, path: '/dashboard' },
-  { name: 'courses', icon: <FaBook />, path: '/courses' },
-  { name: 'profile', icon: <FaUser />, path: '/profile' },
-  { name: 'logout', icon: <BiLogOut />, path: '/' },
-];
 const Sidebar = () => {
   const { logout } = useUserAuth();
   return (
@@ -27,7 +22,7 @@ const Sidebar = () => {
     >
       <VStack align="center" w="full">
         <Image
-          src="/assets/logo.png"
+          src={Logo}
           alt="kodecamp"
           bg="white"
           rounded="full"

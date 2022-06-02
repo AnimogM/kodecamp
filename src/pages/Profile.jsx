@@ -1,7 +1,6 @@
 import {
   Heading,
   Box,
-  Image,
   Avatar,
   VStack,
   Center,

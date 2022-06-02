@@ -1,12 +1,16 @@
 {
   "files": {
-    "main.js": "/kodecamp/static/js/main.8413adcc.js",
+    "main.js": "/kodecamp/static/js/main.5afc3199.js",
     "static/js/377.b536c7d7.chunk.js": "/kodecamp/static/js/377.b536c7d7.chunk.js",
+    "static/media/student.png": "/kodecamp/static/media/student.9f3b5f8377759daa682b.png",
+    "static/media/takenote.svg": "/kodecamp/static/media/takenote.b2b8d37974186aea197a125e09e29ff0.svg",
+    "static/media/logo.png": "/kodecamp/static/media/logo.b9d723705ef70bccabfa.png",
+    "static/media/read.svg": "/kodecamp/static/media/read.bd5b0ff54879ab464eddfca77a51323f.svg",
     "index.html": "/kodecamp/index.html",
-    "main.8413adcc.js.map": "/kodecamp/static/js/main.8413adcc.js.map",
+    "main.5afc3199.js.map": "/kodecamp/static/js/main.5afc3199.js.map",
     "377.b536c7d7.chunk.js.map": "/kodecamp/static/js/377.b536c7d7.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.8413adcc.js"
+    "static/js/main.5afc3199.js"
   ]
 }

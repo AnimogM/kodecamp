@@ -18,7 +18,7 @@ const Dashboard = () => {
           fontSize={{ base: '1.5rem', md: '2.5rem', lg: '3.5rem' }}
           wordBreak="break-word"
         >
-          Welcome {user?.email}
+          Welcome {user?.displayName? user?.displayName: localStorage.getItem("name")}
         </Heading>
         <Image w="50%" alignSelf="center" src="/assets/read.svg" />
       </Stack>

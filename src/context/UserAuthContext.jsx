@@ -25,13 +25,6 @@ const UserAuthContextProvider = ({ children }) => {
     password: '',
   });
 
-  // const signup = (email, password) => {
-  //   return createUserWithEmailAndPassword(auth, email, password);
-  // };
-
-  // const login = (email, password) => {
-  //   return signInWithEmailAndPassword(auth, email, password);
-  // };
   const signup = async e => {
     e.preventDefault();
     setSignupError('');
@@ -42,6 +35,7 @@ const UserAuthContextProvider = ({ children }) => {
         signupDetails.email,
         signupDetails.password
       );
+      localStorage.setItem('name', signupDetails.name);
       setSignupDetails({
         name: '',
         email: '',
@@ -66,6 +60,7 @@ const UserAuthContextProvider = ({ children }) => {
       );
       setLoginDetails({ email: '', password: '' });
       setSignupSucess(false);
+
       navigate('/dashboard');
     } catch (err) {
       setLoginError(err.message);
